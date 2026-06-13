@@ -1,0 +1,101 @@
+aid: silverstripe
+name: SilverStripe
+description: >
+  SilverStripe is an open-source PHP content management system and framework
+  with a GraphQL and REST API for managing pages, assets, versioning, and
+  custom data objects. It powers 50,000+ live sites and provides a flexible,
+  extensible platform for developers to build content-driven web applications
+  with enterprise-level security and an intuitive editing experience.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/silverstripe/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+type: Index
+tags:
+  - CMS
+  - Content Management
+  - GraphQL
+  - REST API
+  - PHP
+  - Open Source
+  - Framework
+  - Pages
+  - Assets
+  - Versioning
+
+apis:
+  - aid: silverstripe:graphql-api
+    name: SilverStripe GraphQL API
+    description: >
+      SilverStripe's GraphQL API provides a content API layer for getting data
+      in and out of the CMS. It supports schema generation from DataObject models,
+      custom types and queries, and extensible schemas. Authentication is handled
+      via CMS Member sessions or HTTP Basic Auth. Available as an optional module
+      in CMS 6.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.silverstripe.org/en/6/optional_features/graphql/
+    baseURL: https://www.example.com/graphql
+    tags:
+      - GraphQL
+      - CMS
+      - Content
+      - Schema
+    properties:
+      - type: Documentation
+        url: https://docs.silverstripe.org/en/6/optional_features/graphql/
+      - type: Authentication
+        url: https://docs.silverstripe.org/en/5/developer_guides/graphql/security_and_best_practices/authentication/
+
+  - aid: silverstripe:rest-api
+    name: SilverStripe REST API
+    description: >
+      SilverStripe provides REST API capabilities via the restfulserver module,
+      allowing CRUD operations on DataObject models over HTTP. Authentication
+      supports API token headers (x-api-token) and session-based auth. Default
+      result pagination limits apply (30 default, 100 max per request).
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://github.com/silverstripe/silverstripe-restfulserver
+    baseURL: https://www.example.com/api/v1
+    tags:
+      - REST
+      - CMS
+      - CRUD
+      - DataObject
+    properties:
+      - type: Documentation
+        url: https://github.com/silverstripe/silverstripe-restfulserver
+      - type: GitHubRepository
+        url: https://github.com/silverstripe/silverstripe-restfulserver
+
+common:
+  - type: Website
+    url: https://www.silverstripe.org/
+  - type: Documentation
+    url: https://docs.silverstripe.org/
+  - type: APIReference
+    url: https://api.silverstripe.org/
+  - type: GitHubOrg
+    url: https://github.com/silverstripe
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/silverstripe/
+  - type: Blog
+    url: https://www.silverstripe.org/blog/
+  - type: Pricing
+    url: https://www.silverstripe.org/software/
+  - type: StatusPage
+    url: https://github.com/silverstripe/platform-status-page
+  - type: X
+    url: https://twitter.com/silverstripe
+  - type: Changelog
+    url: https://docs.silverstripe.org/en/6/changelogs/
+  - type: Plans
+    url: plans/silverstripe-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/silverstripe-rate-limits.yml
+  - type: FinOps
+    url: finops/silverstripe-finops.yml
+
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

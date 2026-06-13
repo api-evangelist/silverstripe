@@ -1,0 +1,36 @@
+name: SilverStripe Plans and Pricing
+description: SilverStripe CMS and Framework are open source under the BSD license and free to use. Commercial offerings include the SilverStripe Cloud Platform with managed hosting and support services, priced on a custom quote basis via sales contact.
+url: https://www.silverstripe.org/software/
+plans:
+  - name: Open Source CMS & Framework
+    description: The full SilverStripe CMS and Framework, free and open source under the BSD license. Includes all core features for building and managing content-driven websites and applications.
+    price: 0
+    currency: USD
+    billing: free
+    features:
+      - Full CMS with page and asset management
+      - GraphQL content API (optional module)
+      - REST API via restfulserver module
+      - Versioning and workflow support
+      - Extensible via 2500+ community modules
+      - PHP framework with MVC architecture
+      - Multi-language support via Fluent module
+      - BSD open source license
+
+  - name: Cloud Platform
+    description: SilverStripe's managed cloud hosting and support platform for enterprises. Pricing is custom and sales-led; prospects must contact SilverStripe for a quote.
+    price: null
+    currency: USD
+    billing: custom
+    contact: https://www.silverstripe.org/
+    features:
+      - Managed hosting infrastructure
+      - Enterprise-level security and compliance
+      - Dedicated support and SLA
+      - Deployment automation and CI/CD
+      - Scalable infrastructure
+
+notes: >
+  SilverStripe does not publish public self-serve pricing for its Cloud Platform.
+  The open-source CMS and Framework are completely free. All commercial pricing
+  requires contacting the SilverStripe sales team for a custom quote.

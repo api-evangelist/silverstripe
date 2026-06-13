@@ -1,0 +1,36 @@
+name: SilverStripe API Rate Limits
+description: SilverStripe does not enforce platform-level API rate limits out of the box. Rate limiting behavior depends on the specific REST or GraphQL module configuration and the hosting environment. Default ORM query limits apply to REST API responses.
+url: https://docs.silverstripe.org/en/5/developer_guides/graphql/
+limits:
+  - api: GraphQL API
+    description: No built-in rate limiting enforced by the GraphQL module. Throttling must be implemented at the infrastructure or application layer by the developer.
+    default: null
+    maximum: null
+    notes: GraphQL is an optional module in CMS 6. Developers are responsible for implementing their own rate limiting via server configuration (nginx, Apache) or application middleware.
+
+  - api: REST API (restfulserver module)
+    description: Default ORM query result limits apply when using the REST API module. Pagination is supported via limit and offset querystring parameters.
+    default: 30
+    maximum: 100
+    unit: records per request
+    notes: >
+      The default result limit per REST API request is 30 records. The maximum
+      configurable limit is 100 records, both of which can be adjusted in the
+      endpoint configuration. No platform-enforced rate limits on request
+      frequency exist by default.
+
+  - api: REST API (emteknetnz/silverstripe-rest-api module)
+    description: Community REST API module with configurable limits per endpoint.
+    default: 30
+    maximum: 100
+    unit: records per request
+    notes: >
+      Authentication uses an x-api-token header with the API Token value.
+      The API_TOKEN_AUTHENTICATION permission must be granted to users
+      consuming the API via token.
+
+infrastructure_notes: >
+  SilverStripe is self-hosted or hosted on the SilverStripe Cloud Platform.
+  Platform-level rate limiting (requests per second/minute) is the responsibility
+  of the hosting operator and is not configured by SilverStripe modules by default.
+  Production deployments should enforce rate limiting at the web server or CDN level.

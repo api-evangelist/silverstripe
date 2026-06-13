@@ -1,0 +1,60 @@
+name: SilverStripe FinOps
+description: Financial operations considerations for SilverStripe CMS deployments. The core CMS and Framework are free and open source (BSD license). Costs arise from hosting, infrastructure, support contracts, and optional SilverStripe Cloud Platform services.
+url: https://www.silverstripe.org/
+cost_model: open_source_self_hosted
+
+cost_categories:
+  - category: Software Licensing
+    cost: 0
+    currency: USD
+    notes: SilverStripe CMS and Framework are BSD-licensed open source software with no licensing fees.
+
+  - category: Hosting Infrastructure
+    cost: variable
+    currency: USD
+    notes: >
+      Self-hosted deployments require PHP hosting with a database (MySQL/PostgreSQL/SQLite).
+      Costs vary by provider, server size, and traffic volume. Shared hosting starts
+      at a few dollars per month; managed cloud hosting can range from tens to hundreds
+      of dollars per month depending on scale.
+
+  - category: SilverStripe Cloud Platform
+    cost: custom
+    currency: USD
+    notes: >
+      SilverStripe's managed cloud hosting and support platform is priced via custom
+      sales quotes. No public pricing is available. Contact the SilverStripe sales
+      team for enterprise pricing.
+    contact: https://www.silverstripe.org/
+
+  - category: Modules and Add-ons
+    cost: variable
+    currency: USD
+    notes: >
+      Most of the 2500+ SilverStripe modules are open source and free.
+      Some commercial modules or integrations may carry licensing costs.
+      Check the SilverStripe Add-ons marketplace for individual module pricing.
+    url: https://addons.silverstripe.org/
+
+  - category: Developer and Support Costs
+    cost: variable
+    currency: USD
+    notes: >
+      Enterprise support contracts and professional services are available from
+      SilverStripe Ltd and a global network of 400+ certified agencies and freelancers.
+      Costs vary based on SLA level and engagement scope.
+
+optimization_tips:
+  - Use the open-source self-hosted option for budget-conscious deployments.
+  - Leverage the community module ecosystem to avoid custom development costs.
+  - Implement caching at the infrastructure level (Varnish, CDN) to reduce server load and hosting costs.
+  - Use SilverStripe's built-in versioning and draft/publish workflow to reduce content management overhead.
+  - Consider managed hosting providers with SilverStripe expertise from the certified partner network.
+
+references:
+  - name: SilverStripe Open Source
+    url: https://www.silverstripe.org/
+  - name: SilverStripe Add-ons
+    url: https://addons.silverstripe.org/
+  - name: SilverStripe GitHub
+    url: https://github.com/silverstripe
