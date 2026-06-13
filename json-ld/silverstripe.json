@@ -1,0 +1,59 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SilverStripe",
+  "description": "SilverStripe is an open-source PHP content management system and framework with a GraphQL and REST API for managing pages, assets, versioning, and custom data objects. It powers 50,000+ live sites and provides a flexible, extensible platform for developers to build content-driven web applications with enterprise-level security and an intuitive editing experience.",
+  "url": "https://www.silverstripe.org/",
+  "applicationCategory": "Content Management System",
+  "operatingSystem": "PHP",
+  "programmingLanguage": "PHP",
+  "license": "https://opensource.org/licenses/BSD-3-Clause",
+  "softwareVersion": "6.2.0",
+  "codeRepository": "https://github.com/silverstripe",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.silverstripe.org/software/"
+  },
+  "sameAs": [
+    "https://github.com/silverstripe",
+    "https://www.linkedin.com/company/silverstripe/",
+    "https://twitter.com/silverstripe"
+  ],
+  "featureList": [
+    "GraphQL API",
+    "REST API via silverstripe-restfulserver module",
+    "DataObject CRUD operations",
+    "Page and asset management",
+    "Content versioning",
+    "CMS Member session authentication",
+    "API token authentication (x-api-token)",
+    "Extensible schema generation"
+  ],
+  "provider": {
+    "@type": "Organization",
+    "name": "SilverStripe",
+    "url": "https://www.silverstripe.org/",
+    "sameAs": [
+      "https://github.com/silverstripe",
+      "https://www.linkedin.com/company/silverstripe/"
+    ]
+  },
+  "potentialAction": [
+    {
+      "@type": "ReadAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://docs.silverstripe.org/en/6/optional_features/graphql/",
+        "description": "SilverStripe GraphQL API documentation"
+      }
+    },
+    {
+      "@type": "ReadAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://github.com/silverstripe/silverstripe-restfulserver",
+        "description": "SilverStripe RESTful Server module documentation"
+      }
+    }
+  ]
+}

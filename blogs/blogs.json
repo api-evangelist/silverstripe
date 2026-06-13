@@ -1,0 +1,37 @@
+{
+  "provider": "silverstripe",
+  "blogURL": "https://www.silverstripe.org/blog/",
+  "lastFetched": "2026-06-13",
+  "posts": [
+    {
+      "title": "Announcing Silverstripe CMS 6.2.0 with better accessibility and QoL features",
+      "url": "https://www.silverstripe.org/blog/announcing-silverstripe-cms-6-2-0-with-better-accessibility-and-qol-features",
+      "date": "2026-04-17",
+      "description": "Latest release featuring enhanced accessibility and quality-of-life improvements, plus changes to CMS 5 support."
+    },
+    {
+      "title": "Announcing Silverstripe CMS 6.1.0 with improved performance",
+      "url": "https://www.silverstripe.org/blog/announcing-silverstripe-cms-6-1-0-with-improved-performance",
+      "date": "2025-10-13",
+      "description": "Release focused on improved performance enhancements to the CMS platform."
+    },
+    {
+      "title": "Evolving Our Commitment: An updated Support Timeline, new Roadmap, and unified Release Policy",
+      "url": "https://www.silverstripe.org/blog/evolving-our-commitment",
+      "date": "2025-08-04",
+      "description": "Announcement of significant updates to support timelines, roadmap planning, and release procedures."
+    },
+    {
+      "title": "Silverstripe CMS 6.0.0 is here",
+      "url": "https://www.silverstripe.org/blog/silverstripe-cms-6-0",
+      "date": "2025-06-10",
+      "description": "Stable release marking the foundation for the next two years of development."
+    },
+    {
+      "title": "Performance best practices for your Silverstripe CMS project",
+      "url": "https://www.silverstripe.org/blog/performance-best-practices",
+      "date": "2025-05-01",
+      "description": "Developer guidance on building performant applications without excessive complexity."
+    }
+  ]
+}
