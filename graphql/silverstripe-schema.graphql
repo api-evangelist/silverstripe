@@ -1,0 +1,746 @@
+# SilverStripe GraphQL Schema
+#
+# Derived from the silverstripe/graphql module (CMS 5/6) and core DataObject models:
+#   - silverstripe/silverstripe-graphql (schema engine)
+#   - silverstripe/silverstripe-cms (SiteTree, Page, ErrorPage, RedirectorPage)
+#   - silverstripe/silverstripe-assets (File, Image, Folder)
+#   - silverstripe/silverstripe-framework (Member, Group, Permission, PermissionRole)
+#   - dnadesign/silverstripe-elemental (BaseElement, ElementalArea) [optional module]
+#
+# Source: https://github.com/silverstripe/silverstripe-graphql
+# Docs:   https://docs.silverstripe.org/en/6/optional_features/graphql/
+#
+# NOTE: SilverStripe generates its schema from DataObject YAML configuration at build time.
+# The exact schema depends on which models and fields are enabled in each site's config.
+# This file documents the standard built-in types and their default generated operations.
+
+# ---------------------------------------------------------------------------
+# Scalars
+# ---------------------------------------------------------------------------
+
+"""
+ISO 8601 date string (YYYY-MM-DD)
+"""
+scalar Date
+
+"""
+ISO 8601 datetime string (YYYY-MM-DDTHH:mm:ssZ)
+"""
+scalar Datetime
+
+"""
+HTML string content
+"""
+scalar HTML
+
+"""
+Generic JSON scalar
+"""
+scalar JSON
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+"""
+Versioning stage for reading versioned DataObjects
+"""
+enum VersionedStage {
+  DRAFT
+  LIVE
+}
+
+"""
+Sort direction
+"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""
+Text field format options
+"""
+enum TextFormat {
+  CONTEXT_SUMMARY
+  FIRST_PARAGRAPH
+  LIMIT_SENTENCES
+  SUMMARY
+}
+
+"""
+Date field format options
+"""
+enum DateFormat {
+  TIMESTAMP
+  NICE
+  DAY_OF_WEEK
+  MONTH
+  YEAR
+  SHORT_MONTH
+  DAY_OF_MONTH
+  SHORT
+  LONG
+  FULL
+  CUSTOM
+}
+
+"""
+Numeric field format options
+"""
+enum NumericFormat {
+  INT
+  ROUND
+  NICE_ROUND
+}
+
+# ---------------------------------------------------------------------------
+# Pagination / Connection types
+# ---------------------------------------------------------------------------
+
+"""
+Relay-style page info for paginated results
+"""
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  totalCount: Int!
+}
+
+# ---------------------------------------------------------------------------
+# SiteTree / Page
+# ---------------------------------------------------------------------------
+
+"""
+Base type for all CMS pages (SilverStripe\\CMS\\Model\\SiteTree).
+DataObject fields: Title, URLSegment, MenuTitle, Content, MetaDescription,
+ExtraMeta, ShowInMenus, ShowInSearch, Sort, HasBrokenFile, HasBrokenLink,
+ReportClass. Versioned extension adds stage and version fields.
+"""
+type SiteTree {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  className: String
+  title: String
+  urlSegment: String
+  menuTitle: String
+  content: HTML
+  metaDescription: String
+  extraMeta: HTML
+  showInMenus: Boolean
+  showInSearch: Boolean
+  sort: Int
+  hasBrokenFile: Boolean
+  hasBrokenLink: Boolean
+  reportClass: String
+  parentID: ID
+  parent: SiteTree
+  link: String
+  absoluteLink: String
+  relativeLink: String
+  breadcrumbs: HTML
+}
+
+"""
+Connection type for paginated SiteTree queries
+"""
+type SiteTreeConnection {
+  nodes: [SiteTree!]!
+  edges: [SiteTreeEdge!]!
+  pageInfo: PageInfo!
+}
+
+type SiteTreeEdge {
+  node: SiteTree!
+}
+
+"""
+Concrete Page type extending SiteTree (same fields, generated from Page DataObject)
+"""
+type Page {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  className: String
+  title: String
+  urlSegment: String
+  menuTitle: String
+  content: HTML
+  metaDescription: String
+  extraMeta: HTML
+  showInMenus: Boolean
+  showInSearch: Boolean
+  sort: Int
+  hasBrokenFile: Boolean
+  hasBrokenLink: Boolean
+  reportClass: String
+  parentID: ID
+  parent: Page
+  link: String
+  absoluteLink: String
+}
+
+type PageConnection {
+  nodes: [Page!]!
+  edges: [PageEdge!]!
+  pageInfo: PageInfo!
+}
+
+type PageEdge {
+  node: Page!
+}
+
+"""
+ErrorPage extends Page with an HTTP error code field
+"""
+type ErrorPage {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  title: String
+  urlSegment: String
+  content: HTML
+  errorCode: Int
+  parentID: ID
+}
+
+"""
+RedirectorPage extends Page — redirects to an internal or external URL
+"""
+type RedirectorPage {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  title: String
+  urlSegment: String
+  redirectionType: String
+  externalURL: String
+  linkToID: ID
+}
+
+# ---------------------------------------------------------------------------
+# File / Image / Folder
+# ---------------------------------------------------------------------------
+
+"""
+Base file type (SilverStripe\\Assets\\File).
+DataObject fields: Name, Title, File (DBFile), ShowInSearch.
+"""
+type File {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  className: String
+  name: String
+  title: String
+  showInSearch: Boolean
+  parentID: ID
+  parent: File
+  ownerID: ID
+  owner: Member
+  url: String
+  absoluteURL: String
+  extension: String
+  size: Int
+}
+
+type FileConnection {
+  nodes: [File!]!
+  edges: [FileEdge!]!
+  pageInfo: PageInfo!
+}
+
+type FileEdge {
+  node: File!
+}
+
+"""
+Image extends File with dimensions and variant/focus-point support
+"""
+type Image {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  name: String
+  title: String
+  parentID: ID
+  parent: File
+  ownerID: ID
+  owner: Member
+  url: String
+  absoluteURL: String
+  width: Int
+  height: Int
+}
+
+type ImageConnection {
+  nodes: [Image!]!
+  edges: [ImageEdge!]!
+  pageInfo: PageInfo!
+}
+
+type ImageEdge {
+  node: Image!
+}
+
+"""
+Folder is a special File subtype representing a directory
+"""
+type Folder {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  name: String
+  title: String
+  parentID: ID
+  parent: Folder
+}
+
+# ---------------------------------------------------------------------------
+# Security: Member, Group, Permission, PermissionRole
+# ---------------------------------------------------------------------------
+
+"""
+CMS user account (SilverStripe\\Security\\Member).
+DataObject fields: FirstName, Surname, Email, TempIDHash, Password,
+PasswordEncryption, Salt, PasswordExpiry, LockedOutUntil, Locale, FailedLoginCount.
+"""
+type Member {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  firstName: String
+  surname: String
+  email: String
+  locale: String
+  failedLoginCount: Int
+  lockedOutUntil: Datetime
+  passwordExpiry: Date
+  groups: GroupConnection
+}
+
+type MemberConnection {
+  nodes: [Member!]!
+  edges: [MemberEdge!]!
+  pageInfo: PageInfo!
+}
+
+type MemberEdge {
+  node: Member!
+}
+
+"""
+Security group (SilverStripe\\Security\\Group).
+DataObject fields: Title, Description, Code, Locked, Sort, HtmlEditorConfig.
+"""
+type Group {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  title: String
+  description: String
+  code: String
+  locked: Boolean
+  sort: Int
+  htmlEditorConfig: String
+  parentID: ID
+  parent: Group
+  members: MemberConnection
+  groups: GroupConnection
+}
+
+type GroupConnection {
+  nodes: [Group!]!
+  edges: [GroupEdge!]!
+  pageInfo: PageInfo!
+}
+
+type GroupEdge {
+  node: Group!
+}
+
+"""
+Permission record attached to a Group
+"""
+type Permission {
+  id: ID!
+  code: String
+  arg: Int
+  type: Int
+}
+
+"""
+PermissionRole — named role assigned to groups
+"""
+type PermissionRole {
+  id: ID!
+  title: String
+}
+
+# ---------------------------------------------------------------------------
+# Elemental (optional dnadesign/silverstripe-elemental module)
+# ---------------------------------------------------------------------------
+
+"""
+Container for content blocks on a page (DNADesign\\Elemental\\Models\\ElementalArea)
+"""
+type ElementalArea {
+  id: ID!
+  elements: BaseElementConnection
+}
+
+"""
+Base content block type (DNADesign\\Elemental\\Models\\BaseElement).
+DataObject fields: Title, ShowTitle, Sort, ExtraClass, Style.
+"""
+type BaseElement {
+  id: ID!
+  created: Datetime
+  lastEdited: Datetime
+  className: String
+  title: String
+  showTitle: Boolean
+  sort: Int
+  extraClass: String
+  style: String
+  parentID: ID
+  parent: ElementalArea
+}
+
+type BaseElementConnection {
+  nodes: [BaseElement!]!
+  edges: [BaseElementEdge!]!
+  pageInfo: PageInfo!
+}
+
+type BaseElementEdge {
+  node: BaseElement!
+}
+
+# ---------------------------------------------------------------------------
+# Filter / Sort input types
+# ---------------------------------------------------------------------------
+
+"""
+String filter input supporting multiple comparison operators
+"""
+input StringFilterInput {
+  eq: String
+  ne: String
+  contains: String
+  startswith: String
+  endswith: String
+  in: [String]
+}
+
+"""
+Int filter input
+"""
+input IntFilterInput {
+  eq: Int
+  ne: Int
+  gt: Int
+  lt: Int
+  gte: Int
+  lte: Int
+  in: [Int]
+}
+
+"""
+Boolean filter input
+"""
+input BooleanFilterInput {
+  eq: Boolean
+}
+
+"""
+Filter input for SiteTree queries
+"""
+input SiteTreeFilterInput {
+  id: IntFilterInput
+  title: StringFilterInput
+  urlSegment: StringFilterInput
+  content: StringFilterInput
+  showInMenus: BooleanFilterInput
+  showInSearch: BooleanFilterInput
+}
+
+"""
+Sort input for SiteTree queries
+"""
+input SiteTreeSortInput {
+  id: SortDirection
+  title: SortDirection
+  created: SortDirection
+  lastEdited: SortDirection
+  sort: SortDirection
+}
+
+"""
+Filter input for Page queries
+"""
+input PageFilterInput {
+  id: IntFilterInput
+  title: StringFilterInput
+  urlSegment: StringFilterInput
+  content: StringFilterInput
+}
+
+input PageSortInput {
+  id: SortDirection
+  title: SortDirection
+  created: SortDirection
+  lastEdited: SortDirection
+}
+
+"""
+Filter input for File/Image queries
+"""
+input FileFilterInput {
+  id: IntFilterInput
+  name: StringFilterInput
+  title: StringFilterInput
+}
+
+input FileSortInput {
+  id: SortDirection
+  name: SortDirection
+  title: SortDirection
+  created: SortDirection
+}
+
+"""
+Filter input for Member queries
+"""
+input MemberFilterInput {
+  id: IntFilterInput
+  firstName: StringFilterInput
+  surname: StringFilterInput
+  email: StringFilterInput
+}
+
+input MemberSortInput {
+  id: SortDirection
+  firstName: SortDirection
+  surname: SortDirection
+  email: SortDirection
+}
+
+# ---------------------------------------------------------------------------
+# Mutation input types
+# ---------------------------------------------------------------------------
+
+input CreatePageInput {
+  title: String!
+  content: String
+  urlSegment: String
+  menuTitle: String
+  metaDescription: String
+  showInMenus: Boolean
+  showInSearch: Boolean
+  parentID: ID
+}
+
+input UpdatePageInput {
+  id: ID!
+  title: String
+  content: String
+  urlSegment: String
+  menuTitle: String
+  metaDescription: String
+  showInMenus: Boolean
+  showInSearch: Boolean
+  parentID: ID
+}
+
+input CreateMemberInput {
+  firstName: String!
+  surname: String!
+  email: String!
+  password: String
+  locale: String
+}
+
+input UpdateMemberInput {
+  id: ID!
+  firstName: String
+  surname: String
+  email: String
+  locale: String
+}
+
+# ---------------------------------------------------------------------------
+# Root Query
+# ---------------------------------------------------------------------------
+
+"""
+Root query type. Actual query names depend on DataObject configuration.
+Convention: read{TypeName}s for lists, readOne{TypeName} for single records.
+Version-aware queries accept a `versioning` argument when the Versioned extension is active.
+"""
+type Query {
+  """
+  Read a paginated list of SiteTree pages
+  """
+  readSiteTrees(
+    filter: SiteTreeFilterInput
+    sort: SiteTreeSortInput
+    limit: Int
+    offset: Int
+    versioning: ReadVersioningInput
+  ): SiteTreeConnection
+
+  """
+  Read a single SiteTree page by ID or URLSegment
+  """
+  readOneSiteTree(
+    id: ID
+    filter: SiteTreeFilterInput
+    versioning: ReadVersioningInput
+  ): SiteTree
+
+  """
+  Read a paginated list of Pages
+  """
+  readPages(
+    filter: PageFilterInput
+    sort: PageSortInput
+    limit: Int
+    offset: Int
+    versioning: ReadVersioningInput
+  ): PageConnection
+
+  """
+  Read a single Page by ID
+  """
+  readOnePage(
+    id: ID
+    filter: PageFilterInput
+    versioning: ReadVersioningInput
+  ): Page
+
+  """
+  Read a paginated list of Files
+  """
+  readFiles(
+    filter: FileFilterInput
+    sort: FileSortInput
+    limit: Int
+    offset: Int
+  ): FileConnection
+
+  """
+  Read a single File by ID
+  """
+  readOneFile(id: ID, filter: FileFilterInput): File
+
+  """
+  Read a paginated list of Images
+  """
+  readImages(
+    filter: FileFilterInput
+    sort: FileSortInput
+    limit: Int
+    offset: Int
+  ): ImageConnection
+
+  """
+  Read a single Image by ID
+  """
+  readOneImage(id: ID, filter: FileFilterInput): Image
+
+  """
+  Read a paginated list of Members (requires authentication)
+  """
+  readMembers(
+    filter: MemberFilterInput
+    sort: MemberSortInput
+    limit: Int
+    offset: Int
+  ): MemberConnection
+
+  """
+  Read a single Member by ID (requires authentication)
+  """
+  readOneMember(id: ID, filter: MemberFilterInput): Member
+
+  """
+  Read a paginated list of Groups (requires authentication)
+  """
+  readGroups(limit: Int, offset: Int): GroupConnection
+}
+
+# ---------------------------------------------------------------------------
+# Versioning input (Versioned extension)
+# ---------------------------------------------------------------------------
+
+"""
+Input for controlling which stage/version to read from when the Versioned extension is active
+"""
+input ReadVersioningInput {
+  mode: VersionedQueryMode
+  archiveDate: String
+}
+
+enum VersionedQueryMode {
+  LATEST
+  LIVE
+  DRAFT
+  ARCHIVE
+}
+
+# ---------------------------------------------------------------------------
+# Root Mutation
+# ---------------------------------------------------------------------------
+
+"""
+Root mutation type. Operations depend on YAML configuration.
+Convention: create{TypeName}, update{TypeName}, delete{TypeName}.
+"""
+type Mutation {
+  """
+  Create a new Page
+  """
+  createPage(input: CreatePageInput!): Page
+
+  """
+  Update an existing Page by ID
+  """
+  updatePage(input: UpdatePageInput!): Page
+
+  """
+  Delete a Page by ID
+  """
+  deletePage(id: ID!): Boolean
+
+  """
+  Publish a versioned Page to the live stage
+  """
+  publishPage(id: ID!): Page
+
+  """
+  Unpublish a Page (remove from live stage, keep draft)
+  """
+  unpublishPage(id: ID!): Page
+
+  """
+  Archive a Page (remove from both draft and live)
+  """
+  archivePage(id: ID!): Boolean
+
+  """
+  Create a new Member (requires admin permissions)
+  """
+  createMember(input: CreateMemberInput!): Member
+
+  """
+  Update an existing Member
+  """
+  updateMember(input: UpdateMemberInput!): Member
+
+  """
+  Delete a Member by ID
+  """
+  deleteMember(id: ID!): Boolean
+}
