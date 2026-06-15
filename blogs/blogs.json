@@ -33,5 +33,14 @@
       "date": "2025-05-01",
       "description": "Developer guidance on building performant applications without excessive complexity."
     }
-  ]
+  ],
+  "repo": "silverstripe",
+  "feeds": [
+    {
+      "source": "https://www.linkedin.com/company/silverstripe/",
+      "error": "HTTPError"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-14T20:42:17Z"
 }
