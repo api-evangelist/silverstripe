@@ -7,7 +7,7 @@ description: 'SilverStripe is an open-source PHP content management system and f
   and an intuitive editing experience.
 
   '
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/silverstripe/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -34,7 +34,7 @@ apis:
     6.
 
     '
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://docs.silverstripe.org/en/6/optional_features/graphql/
   baseURL: https://www.example.com/graphql
   tags:
@@ -57,7 +57,7 @@ apis:
     pagination limits apply (30 default, 100 max per request).
 
     '
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://github.com/silverstripe/silverstripe-restfulserver
   baseURL: https://www.example.com/api/v1
   tags:
