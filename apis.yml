@@ -89,7 +89,7 @@ common:
   url: https://github.com/silverstripe/platform-status-page
 - type: X
   url: https://twitter.com/silverstripe
-- type: Changelog
+- type: ChangeLog
   url: https://docs.silverstripe.org/en/6/changelogs/
 - type: Plans
   url: plans/silverstripe-plans-pricing.yml
