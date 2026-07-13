@@ -2,20 +2,17 @@
   "repo": "silverstripe",
   "feeds": [
     {
-      "source": "https://www.silverstripe.org/blog/rss/",
+      "source": "https://www.silverstripe.org/blog/rss/feed.xml",
       "feed_url": "https://www.silverstripe.org/blog/rss/feed.xml",
       "title": "",
-      "saved": 1,
-      "method": "discovered"
+      "saved": 0,
+      "method": "feed"
     },
     {
       "source": "https://www.linkedin.com/company/silverstripe/",
-      "feed_url": "https://www.linkedin.com/company/silverstripe/",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-06-27T12:03:07Z",
-  "post_count": 1
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 50
 }
