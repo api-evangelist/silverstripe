@@ -83,6 +83,9 @@ apis:
   - type: GitHubRepository
     url: https://github.com/silverstripe/silverstripe-restfulserver
 common:
+- type: License
+  name: BSD-3-Clause
+  url: https://github.com/silverstripe/silverstripe-restfulserver/blob/3/LICENSE
 - type: DomainSecurity
   url: security/silverstripe-domain-security.yml
 - type: Website
