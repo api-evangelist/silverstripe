@@ -44,7 +44,7 @@ tags:
 - GraphQL
 - REST API
 - PHP
-- Open-Source
+- Open Source
 - Framework
 - Pages
 - Assets
@@ -60,6 +60,7 @@ tags_raw:
 - Pages
 - Assets
 - Versioning
+- Open-Source
 apis:
 - aid: silverstripe:graphql-api
   name: SilverStripe GraphQL API
