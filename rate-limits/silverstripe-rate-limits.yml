@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: SilverStripe API Rate Limits
 description: SilverStripe does not enforce platform-level API rate limits out of the box. Rate limiting behavior depends on the specific REST or GraphQL module configuration and the hosting environment. Default ORM query limits apply to REST API responses.
 url: https://docs.silverstripe.org/en/5/developer_guides/graphql/
