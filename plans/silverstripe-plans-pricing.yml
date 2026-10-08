@@ -38,3 +38,23 @@ notes: >
   SilverStripe does not publish public self-serve pricing for its Cloud Platform.
   The open-source CMS and Framework are completely free. All commercial pricing
   requires contacting the SilverStripe sales team for a custom quote.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  units: []
+  plans:
+  - name: Open Source CMS & Framework
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Cloud Platform
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
