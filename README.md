@@ -1,4 +1,4 @@
-# SilverStripe (silverstripe)
+# SilverStripe
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,88 +66,112 @@
 
 SilverStripe is an open-source PHP content management system and framework with a GraphQL and REST API for managing pages, assets, versioning, and custom data objects. It powers 50,000+ live sites and provides a flexible, extensible platform for developers to build content-driven web applications with enterprise-level security and an intuitive editing experience.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/silverstripe/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/silverstripe/refs/heads/main/apis.yml)
+**Areas:** CMS · Content Management · GraphQL · REST API · PHP · Open Source · Framework · Pages · Assets · Versioning
 
-## Scope
+## SilverStripe on APIs.io
 
-- **Type:** Index
+Everything profiled for SilverStripe is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/silverstripe/](https://apis.io/providers/silverstripe/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (2)
 
-- CMS
-- Content Management
-- GraphQL
-- REST API
-- PHP
-- Open Source
-- Framework
-- Pages
-- Assets
-- Versioning
+- [SilverStripe GraphQL API](https://apis.io/apis/silverstripe/graphql-api/) — SilverStripe's GraphQL API provides a content API layer for getting data in and out of the CMS. It supports schema generation from DataObject models, custom…
+- [SilverStripe REST API](https://apis.io/apis/silverstripe/rest-api/) — SilverStripe provides REST API capabilities via the restfulserver module, allowing CRUD operations on DataObject models over HTTP. Authentication supports…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-06-13
-- **Modified:** 2026-06-13
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### SilverStripe GraphQL API
+GraphQL schemas.
 
-SilverStripe's GraphQL API provides a content API layer for getting data in and out of the CMS. It supports schema generation from DataObject models, custom types and queries, and extensible schemas. Authentication is handled via CMS Member sessions or HTTP Basic Auth. Available as an optional module in CMS 6.
+- [SilverStripe GraphQL API](https://apis.io/graphqls/silverstripe/silverstripe-graphql/)
 
-- **Human URL:** [https://docs.silverstripe.org/en/6/optional_features/graphql/](https://docs.silverstripe.org/en/6/optional_features/graphql/)
-- **Base URL:** `https://www.example.com/graphql`
+#### Security (1)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- GraphQL
-- CMS
-- Content
-- Schema
+- [Silverstripe Domain Security](https://apis.io/security/silverstripe/silverstripe-domain-security/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://docs.silverstripe.org/en/6/optional_features/graphql/)
-- [Authentication](https://docs.silverstripe.org/en/5/developer_guides/graphql/security_and_best_practices/authentication/)
-- [Graph Q L](graphql/silverstripe-graphql.md)
+Published plans, tiers and prices.
 
-### SilverStripe REST API
+- [Silverstripe Plans Pricing](https://apis.io/plans/silverstripe/silverstripe-plans-pricing/)
 
-SilverStripe provides REST API capabilities via the restfulserver module, allowing CRUD operations on DataObject models over HTTP. Authentication supports API token headers (x-api-token) and session-based auth. Default result pagination limits apply (30 default, 100 max per request).
+#### Rate limits (1)
 
-- **Human URL:** [https://github.com/silverstripe/silverstripe-restfulserver](https://github.com/silverstripe/silverstripe-restfulserver)
-- **Base URL:** `https://www.example.com/api/v1`
+Published request limits.
 
-#### Tags
+- [Silverstripe Rate Limits](https://apis.io/rate-limits/silverstripe/silverstripe-rate-limits/)
 
-- REST
-- CMS
-- CRUD
-- DataObject
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://github.com/silverstripe/silverstripe-restfulserver)
-- [GitHub Repository](https://github.com/silverstripe/silverstripe-restfulserver)
+- [Silverstripe Finops](https://apis.io/finops/silverstripe/silverstripe-finops/)
 
-## Common Properties
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.silverstripe.org/)
 - [Documentation](https://docs.silverstripe.org/)
-- [API Reference](https://api.silverstripe.org/)
-- [Git Hub Org](https://github.com/silverstripe)
-- [LinkedIn](https://www.linkedin.com/company/silverstripe/)
-- [Blog](https://www.silverstripe.org/blog/)
+- [API reference](https://api.silverstripe.org/)
 - [Pricing](https://www.silverstripe.org/software/)
-- [Status Page](https://github.com/silverstripe/platform-status-page)
-- [X (Twitter)](https://twitter.com/silverstripe)
 - [Changelog](https://docs.silverstripe.org/en/6/changelogs/)
-- [Plans](plans/silverstripe-plans-pricing.yml)
-- [Rate Limits](rate-limits/silverstripe-rate-limits.yml)
-- [Fin Ops](finops/silverstripe-finops.yml)
+- [Blog](https://www.silverstripe.org/blog/)
+- [Status](https://github.com/silverstripe/platform-status-page)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 32.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 39.4 |
+| Contract governance | 0.0 |
+| Operational transparency | 44.7 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 5.3 |
+
+**Agent readiness 16.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/silverstripe/](https://apis.io/providers/silverstripe/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SilverStripe: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/silverstripe/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
